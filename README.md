@@ -9,3 +9,10 @@ ARRAY_SIZE of 4 is intended to address a Slurm job using -n 4 -N 2 (4 processes 
 To change the test parameters, update the ARRAY_SIZE. This was not designed to be a robust testing mechanism for clusters of different configurations and is explicitly designed to test 4 processes over 2 nodes - setting ARRAY_SIZE to 8 may not test 2 nodes with 4 cores if one compute node has, for instance, 8 cores.
 
 This is a very naive implementation that does the job for 4 cores in 2 nodes - it will require some modifications to be more extensible.
+
+# Running on OpenHPC2 virtual lab
+
+1. Compile the code `mpicc test-nodes-mpi_reduce.c`
+1. Call an interactive job `salloc -n 4 -N 2`
+1. Run a parallel job `prun ./a.out`
+1. Profit
